@@ -1,0 +1,10 @@
+CREATE TABLE Teams(
+	TeamID INT PRIMARY KEY auto_increment,
+	TeamFlag NVARCHAR(250),
+	TeamName NVARCHAR(25) NOT NULL,
+	Continent NVARCHAR(20) NOT NULL,
+	Played INT NOT NULL,
+	Won INT NOT NULL,
+	Drawn INT NOT NULL,
+	Lost INT NOT NULL
+);

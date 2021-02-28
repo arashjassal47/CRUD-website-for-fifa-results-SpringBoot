@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Display results</title>
+<link rel="stylesheet" th:href="@{/style.css}"/>
+</head>
+<body>
+	<header>
+		<div id="menu">
+			<a th:href="@{/homeView}"><span>Home</span></a>
+			<a th:href="@{/addTeamView}"><span>Add team</span></a>
+			<a th:href="@{/editTeamView}"><span>Edit team</span></a>
+			<a th:href="@{/deleteTeamView}"><span>Delete team</span></a>
+			<a th:href="@{/displayResultsView}"><span>Display results</span></a>
+		</div>
+	</header>
+	<pre>
+	
+	</pre>
+	<h1>Results of FIFA World Cup 2018.</h1>
+	<p>Sort options:-</p>
+	<form method="POST" action="#" th:action="@{/sortResults}">
+		<span><input type="radio" id="1" name="sort" th:value="1"/><label for="1">Country</label></span><br><br>
+		<span><input type="radio" id="2" name="sort" th:value="2"/><label for="2">Continent</label></span><br><br>
+		<span><input type="radio" id="3" name="sort" th:value="3"/><label for="3">Points</label></span><br><br>
+		<span><input type="submit" value="GO"/></span>
+	</form>
+	<pre>
+	
+	
+	</pre>
+	<table>
+		<tr>
+			<th>Flag</th><th>ID</th><th>Country</th><th>Continent</th><th>Played</th><th>Won</th><th>Drawn</th><th>Lost</th><th>Points</th>
+		</tr>
+		<tr th:each="x : ${teamList}">
+			<td><img th:src="${x.teamFlag}" width="45px" height="30px"/></td>
+			<td th:text="${x.teamID}">ID</td>
+			<td th:text="${x.teamName}">Country</td>
+			<td th:text="${x.continent}">Continent</td>
+			<td th:text="${x.played}">Played</td>
+			<td th:text="${x.won}">Won</td>
+			<td th:text="${x.drawn}">Drawn</td>
+			<td th:text="${x.lost}">Lost</td>
+			<td th:text="${x.won}*3 + ${x.drawn}">Points</td>
+	</table>
+	<pre>
+	
+	
+	</pre>
+	<footer>
+	<p> © 2020 by Arashdeep Singh, All rights reserved.</p>
+	</footer>
+</body>
+</html>

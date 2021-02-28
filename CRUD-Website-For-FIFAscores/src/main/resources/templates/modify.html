@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Update team</title>
+<link rel="stylesheet" th:href="@{/style.css}"/>
+</head>
+<body>
+	<header>
+		<div id="menu">
+			<a th:href="@{/homeView}"><span>Home</span></a>
+			<a th:href="@{/addTeamView}"><span>Add team</span></a>
+			<a th:href="@{/editTeamView}"><span>Edit team</span></a>
+			<a th:href="@{/deleteTeamView}"><span>Delete team</span></a>
+			<a th:href="@{/displayResultsView}"><span>Display results</span></a>
+		</div>
+	</header>
+	<pre>
+	
+	
+	</pre>
+	<h1>Update team here.</h1>
+	<form method="POST" action="#" th:action="@{/modifyTeam}" th:object="${team}">
+		<span><input type="hidden" th:field="*{teamID}"/></span><br><br>
+		<span>Flag Image: <input type="url" th:field="*{teamFlag}"/></span><br><br>
+		<span>Team Name: <input required="required" type="text" th:field="*{teamName}"/></span><br><br>
+		<span>Continent: <select required="required" th:field="*{continent}">
+			<option th:value="1">Asia</option>
+			<option th:value="2">North America</option>
+			<option th:value="3">South America</option>
+			<option th:value="4">Africa</option>
+			<option th:value="5">Australia</option>
+			<option th:value="6">Europe</option>
+			<option th:value="7">Antarctica</option>
+		</select></span><br><br>
+		<span>Number of Played games: <input type="number" min="0" step="1" required="required" th:field="*{played}"/></span><br><br>
+		<span>Number of Won games: <input type="number" min="0" step="1" required="required" th:field="*{won}"/></span><br><br>
+		<span>Number of Drawn games: <input type="number" min="0" step="1" required="required" th:field="*{drawn}"/></span><br><br>
+		<span>Number of Lost games: <input type="number" min="0" step="1" required="required" th:field="*{lost}"/></span><br><br>
+		<span><input type="submit" value="Update"/></span>
+	</form>
+	<pre>
+	
+	</pre>
+	<footer>
+	<p> © 2020 by Arashdeep Singh, All rights reserved.</p>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html  xmlns:th="https://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" th:href="@{/style.css}"/>
+<meta charset="ISO-8859-1">
+<title>Confirmation to delete</title>
+<style>
+	div{
+		background-color:#CCAD7E;
+		position:absolute;
+		transform:translate(-50%,-50%);
+		left:50%;top:50%;
+	}
+
+</style>
+</head>
+<body>
+	<div>
+	<h1>Are you sure want to delete the record #<span th:text="${TeamID}"><strong>ID</strong></span> ?</h1><br>
+	<form method="POST" action="#" th:action="@{/deleteConfirmation/} + '1'">
+	<span><input type="hidden" name="id" th:value="${id}"/></span><br>
+	<span><input type="submit" value="Cancel"/></span><br>
+	</form>
+	<pre>
+	</pre>
+	<form method="POST" action="#" th:action="@{/deleteConfirmation/} + '2'">
+	<span><input type="hidden" name="id" th:value="${id}"/></span>
+	<span><input type="submit" value="Confirm"/></span><br><br>
+	</form>
+	</div>
+</body>
+</html>

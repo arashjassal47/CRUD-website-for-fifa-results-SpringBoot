@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Delete team</title>
+<link rel="stylesheet" th:href="@{/style.css}"/>
+</head>
+<body>
+	<header>
+		<div id="menu">
+			<a th:href="@{/homeView}"><span>Home</span></a>
+			<a th:href="@{/addTeamView}"><span>Add team</span></a>
+			<a th:href="@{/editTeamView}"><span>Edit team</span></a>
+			<a th:href="@{/deleteTeamView}"><span>Delete team</span></a>
+			<a th:href="@{/displayResultsView}"><span>Display results</span></a>
+		</div>
+	</header>
+	<pre>
+	
+	</pre>
+	<h1>Delete teams here.</h1>
+	<table>
+		<tr>
+			<th>Flag</th><th>ID</th><th>Country</th><th>Continent</th><th>Played</th><th>Won</th><th>Drawn</th><th>Lost</th><th>Delete</th>
+		</tr>
+		<tr th:each="x : ${teamList}">
+			<td><img th:src="${x.teamFlag}" width="45px" height="30px"/></td>
+			<td th:text="${x.teamID}">ID</td>
+			<td th:text="${x.teamName}">Country</td>
+			<td th:text="${x.continent}">Continent</td>
+			<td th:text="${x.played}">Played</td>
+			<td th:text="${x.won}">Won</td>
+			<td th:text="${x.drawn}">Drawn</td>
+			<td th:text="${x.lost}">Lost</td>
+			<td><a th:href="@{/deleteTeamById/}+${x.teamID}">DELETE</a></td>
+	</table>
+	<pre>
+	
+	
+	</pre>
+	<h1>Search teams here.</h1>
+	
+	<p>Search by continent:-</p>
+	<form method="POST" action="#" th:action="@{/searchTeamByContinent/} + '2'">
+	<span><select name="continent" required="required" >
+			<option th:value="1">Asia</option>
+			<option th:value="2">North America</option>
+			<option th:value="3">South America</option>
+			<option th:value="4">Africa</option>
+			<option th:value="5">Australia</option>
+			<option th:value="6">Europe</option>
+			<option th:value="7">Antarctica</option>
+		</select></span><br><br>
+		<span><input type="submit" value="Search By Continent"/></span><br><br>
+	</form>
+	
+	<p>Search by country:-</p>
+	<form method="POST" action="#" th:action="@{/searchTeamByCountry/} + '2'">
+		<span><input type="text" name="country" required="required"/></span><br><br>
+		<span><input type="submit" value="Search By Country"/></span><br><br>
+	</form>>
+	<pre>
+	
+	
+	</pre>
+	<footer>
+	<p> © 2020 by Arashdeep Singh, All rights reserved.</p>
+	</footer>
+</body>
+</html>
